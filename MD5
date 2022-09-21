@@ -1,7 +1,7 @@
-64a4c321313d4ba9c1cdf3965df1d8c4 *DESCRIPTION
+7e461a386ac716704ed36959b622d7bb *DESCRIPTION
 4b52e3bb6ba758a9a45b365a4d6d4dde *LICENSE
 59d2e472b31f532f37c0ef67feb3f503 *NAMESPACE
-898a8fa96134758eceffad9b18cb4f11 *NEWS.md
+60f21fc32932849cfcd4d7b1b2a64afe *NEWS.md
 6f3aaa930ad5c92b5c70772934adae68 *R/catmaply.R
 b8f0e54223621683eeb507c4f5b9c04a *R/data.R
 88a0932f032468b72db6ceff86ef76d4 *R/globals.R
@@ -9,16 +9,16 @@ b06c8defd2ddd4b1d25d82b02917bbaf *R/layout.R
 cbe8c71d89d689b050123cb9272c7be1 *R/plot.R
 b89ed90caf16029518fb0d7f9f583262 *R/trace.R
 61cd13e1a8eaabee1bcc04ebe11e7fb7 *R/utils.R
-fea65eae8518200ed747af5376523754 *README.md
-114dffed4e67f0647b05a29ebdedfb0b *build/vignette.rds
+5bf44bf04845211a4f2842d64ab3b0cd *README.md
+ca6d459e00d39c11fc05b8c5b9b8b534 *build/vignette.rds
 cd3091b4185b145c46afa0bc3ac448f0 *data/vbz.rda
 bec2e7498f8ff512624468f761145aad *inst/doc/catmaply.R
-c7685dccb8b2d7164c86c94c625f1107 *inst/doc/catmaply.Rmd
-42175ec069b090081d29f5cf260bf1e0 *inst/doc/catmaply.html
+114a1fb1bdb144e41e0e8179c5c35958 *inst/doc/catmaply.Rmd
+f0c0bb83a0ab9452b781d917bb98ec8f *inst/doc/catmaply.html
 976f916dbe47d07cc704cff69b8e33d5 *man/add_catmaply_single.Rd
 d18c27d75ae3b42467ec8ca81baade7a *man/add_catmaply_slider.Rd
 7c1cd092707b45df97708b83c78a6464 *man/add_catmaply_traces.Rd
-ca37c058bf948faee8bafcdb15e8e581 *man/catmaply-package.Rd
+b62a37a74eda1a2d86c523de8e996877 *man/catmaply-package.Rd
 9a3af28498e3fac7d8e6bc59eda4bb75 *man/catmaply.Rd
 451a5ec6aba0e34eaa66c26c816b9c31 *man/catmaply_annotations.Rd
 06620da8e7445d479cb26fd9306a5fcf *man/catmaply_layout.Rd
@@ -29,4 +29,4 @@ dae97ea52a003c443eb3c5becd692dce *man/vbz.Rd
 71d205e92c38c07e5116cbf932760cea *tests/testthat.R
 243c82bf9402bbc33c125a758b080d3d *tests/testthat/test-catmaply.R
 5923668fc09403aae4d0e0e7021d6e85 *tests/testthat/test-utils.R
-c7685dccb8b2d7164c86c94c625f1107 *vignettes/catmaply.Rmd
+114a1fb1bdb144e41e0e8179c5c35958 *vignettes/catmaply.Rmd
