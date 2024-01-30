@@ -7,7 +7,6 @@
 #' @param hover_hide boolean indicating if the hover label should be hidden or not; (default: FALSE).
 #' @param color_palette a color palette vector.
 #' @param categorical_color_range if the resulting heatmap holds categorical field values or continuous values that belong to a category; (default: FALSE).
-#' @param categorical_col if categorical_color_range is TRUE, then this column is used to create categories; (default: FALSE).
 #' @param category_items distinct/unique items of ordered category items
 #' @param legend_items distinct/unique items of ordered legend items
 #'
@@ -113,10 +112,10 @@ add_catmaply_single <- function(
 ) {
 
   discrete_col <- discrete_coloring(
-    categories=legend_items,
-    col_palette=color_palette,
-    range_min = min(stats::na.omit(df$z)),
-    range_max = max(stats::na.omit(df$z))
+    df = df,
+    color_palette = color_palette,
+    categorical_color_range = categorical_color_range,
+    legend_items = legend_items
   )
 
   if (legend) { # legend
@@ -221,7 +220,6 @@ add_catmaply_single <- function(
 #' @param annotated boolean indicating if annotations should be displayed.
 #' @param text_color font color to be used for text; (default: "#444").
 #' @param text_size font size to be used for text/annotation. Needs to be a number greater than or equal to 1; (default: 12).
-#' @param text_font_color the typeface that will be applied by the web browser for the text/annotation.
 #' The web browser will only be able to apply a font if it is available on the system which it operates.
 #' Provide multiple font families, separated by commas, to indicate the preference in which to apply fonts if they aren't available on the system;
 #' (default: c("Open Sans", "verdana", "arial", "sans-serif")).
@@ -256,7 +254,6 @@ add_catmaply_single <- function(
 #' @param hover_hide boolean indicating if the hover label should be hidden or not; (default: FALSE).
 #' @param color_palette a color palette vector.
 #' @param categorical_color_range if the resulting heatmap holds categorical field values or continuous values that belong to a category; (default: FALSE).
-#' @param categorical_col if categorical_color_range is TRUE, then this column is used to create categories; (default: FALSE).
 #' @param category_items distinct/unique items of ordered category items
 #' @param legend_items distinct/unique items of ordered legend items
 #'
@@ -285,9 +282,11 @@ add_catmaply_slider <- function(
 ) {
 
   visible_index <- 1
+  auto_mode <- FALSE
 
   if (all(c("slider_start", "slider_range", "slider_shift", "slider_step_name") %in% names(slider_steps))){
 
+    auto_mode <- TRUE
     step_name_col <- slider_steps$slider_step_name[1]
 
     if (!(step_name_col %in% colnames(df)))
@@ -301,7 +300,7 @@ add_catmaply_slider <- function(
       stop("You need to define excactly one stepname entry per values on the x axis.")
 
     # get range to calculate number of steps and to get step names
-    x_range <- unique(df[['x_order']])
+    x_range <- unique(df[['x_rank']])
     x <- unique(df[[step_name_col]])[order(x_range)]
     x_range <- x_range[order(x_range)]
 
@@ -337,7 +336,11 @@ add_catmaply_slider <- function(
     if (lower_bound >= upper_bound)
       stop(paste("Trying to build slider, however, lower bound is higher or equal than upper bound for step:", slider_steps[[i]]$name))
 
-    tmp <- dplyr::filter(df, dplyr::between(df[["x_order"]], lower_bound, upper_bound))
+    if (auto_mode) {
+      tmp <- dplyr::filter(df, dplyr::between(df[["x_rank"]], lower_bound, upper_bound))
+    } else {
+      tmp <- dplyr::filter(df, dplyr::between(df[["x_order"]], lower_bound, upper_bound))
+    }
 
     # get the indexes of the legend items relevant to the current trace
     legend_idx <- which(legend_items %in% unique(tmp[['legend']]))
@@ -413,15 +416,10 @@ add_catmaply_slider <- function(
 #'
 #' Function to produce catmaply traces.
 #'
-#' @param fig plotly object
 #' @param df data.frame or tibble holding the data.
 #' @param annotated boolean indicating if annotations should be displayed.
 #' @param text_color font color to be used for text; (default: "#444").
 #' @param text_size font size to be used for text/annotation. Needs to be a number greater than or equal to 1; (default: 12).
-#' @param text_font_color the typeface that will be applied by the web browser for the text/annotation.
-#' The web browser will only be able to apply a font if it is available on the system which it operates.
-#' Provide multiple font families, separated by commas, to indicate the preference in which to apply fonts if they aren't available on the system;
-#' (default: c("Open Sans", "verdana", "arial", "sans-serif")).
 #'
 #' @return list
 #'

@@ -1,6 +1,6 @@
 Package: catmaply
 Title: Heatmap for Categorical Data using 'plotly'
-Version: 0.9.3
+Version: 0.9.4
 Authors@R: c(
       person("Yves", "Mauron", email="ypmauron@gmail.com", role=c("aut", "cre")),
       person(given="Trivadis AG", role="cph")
@@ -17,16 +17,17 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Depends: R (>= 3.4.0)
-Imports: plotly, dplyr, magrittr, rlang
+Imports: plotly, dplyr, magrittr, rlang, tidyr
 Suggests: testthat, viridis, lubridate, tidyverse, knitr, rmarkdown
 VignetteBuilder: knitr
 RoxygenNote: 7.2.1
 URL: https://github.com/VerkehrsbetriebeZuerich/catmaply,
         https://verkehrsbetriebezuerich.github.io/catmaply/
 BugReports: https://github.com/VerkehrsbetriebeZuerich/catmaply/issues
+Language: en-US
 NeedsCompilation: no
-Packaged: 2023-01-01 11:40:24 UTC; yves
+Packaged: 2024-01-30 21:33:26 UTC; yves
 Author: Yves Mauron [aut, cre],
   Trivadis AG [cph]
 Repository: CRAN
-Date/Publication: 2023-01-05 19:20:02 UTC
+Date/Publication: 2024-01-30 21:50:03 UTC

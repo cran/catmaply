@@ -28,7 +28,9 @@ library(dplyr)
 
 ## ----out.width='100%'---------------------------------------------------------
 data("vbz")
-df <- na.omit(vbz[[1]])
+
+df <- na.omit(vbz[[1]]) %>% 
+  filter(.data$vehicle == "PO")
 
 str(df)
 
